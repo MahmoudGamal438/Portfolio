@@ -1,0 +1,56 @@
+<section id="projects" class="section">
+  <div class="container" appReveal>
+    <p class="section-kicker">Selected work</p>
+    <h2 class="section-title">Projects built around Angular and frontend.</h2>
+    <p class="section-lead">
+      These are public repositories from my GitHub. Descriptions reflect the actual structure,
+      routes, and documented features — nothing invented.
+    </p>
+
+    <div class="filters" role="tablist" aria-label="Filter projects">
+      @for (item of filters; track item.id) {
+        <button
+          type="button"
+          class="chip"
+          [class.active]="filter() === item.id"
+          (click)="setFilter(item.id)"
+        >
+          {{ item.label }}
+        </button>
+      }
+    </div>
+
+    <div class="list">
+      @for (project of visible; track project.slug) {
+        <article class="card project">
+          <div class="preview" [style.--accent]="project.accent" [attr.aria-hidden]="true">
+            <span class="year">{{ project.year }}</span>
+            <strong>{{ project.name }}</strong>
+            <em>{{ project.category }}</em>
+          </div>
+          <div class="body">
+            <h3>{{ project.name }}</h3>
+            <p>{{ project.shortDescription }}</p>
+            <div class="tech">
+              @for (tech of project.technologies; track tech) {
+                <span class="badge">{{ tech }}</span>
+              }
+            </div>
+            <ul>
+              @for (feature of project.features.slice(0, 3); track feature) {
+                <li>{{ feature }}</li>
+              }
+            </ul>
+            <div class="actions">
+              <a class="btn btn-primary" [routerLink]="['/projects', project.slug]">Details</a>
+              <a class="btn btn-ghost" [href]="project.githubUrl" target="_blank" rel="noopener noreferrer">GitHub</a>
+              @if (project.liveUrl) {
+                <a class="btn btn-ghost" [href]="project.liveUrl" target="_blank" rel="noopener noreferrer">Live Demo</a>
+              }
+            </div>
+          </div>
+        </article>
+      }
+    </div>
+  </div>
+</section>

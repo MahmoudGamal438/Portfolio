@@ -1,0 +1,43 @@
+.groups {
+  display: grid;
+  gap: 16px;
+  margin-top: 32px;
+}
+
+.group {
+  padding: 22px;
+}
+
+h3 {
+  font-size: 1rem;
+  margin-bottom: 14px;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+li {
+  padding: 7px 11px;
+  border-radius: 999px;
+  border: 1px solid var(--line);
+  background: var(--bg-soft);
+  font-size: 13px;
+}
+
+@media (min-width: 720px) {
+  .groups {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 1080px) {
+  .groups {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}

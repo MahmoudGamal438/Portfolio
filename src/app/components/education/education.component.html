@@ -1,0 +1,13 @@
+<section id="education" class="section">
+  <div class="container" appReveal>
+    <p class="section-kicker">Education</p>
+    <h2 class="section-title">Academic background.</h2>
+    @for (item of items; track item.institution) {
+      <article class="card edu">
+        <h3>{{ item.degree }}</h3>
+        <p>{{ item.field }}</p>
+        <p class="meta">{{ item.institution }} · {{ item.period }}</p>
+      </article>
+    }
+  </div>
+</section>

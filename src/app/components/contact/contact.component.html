@@ -1,0 +1,50 @@
+<section id="contact" class="section">
+  <div class="container contact" appReveal>
+    <div>
+      <p class="section-kicker">Contact</p>
+      <h2 class="section-title">Let's Build Something Great Together</h2>
+      <p class="section-lead">
+        If you are hiring for an Angular or Frontend role, I would be glad to talk.
+      </p>
+      <div class="channels">
+        <a class="card channel" [href]="'mailto:' + profile.email">
+          <span>Email</span>
+          <strong>{{ profile.email }}</strong>
+        </a>
+        <a class="card channel" [href]="profile.linkedin" target="_blank" rel="noopener noreferrer">
+          <span>LinkedIn</span>
+          <strong>mahmoud-el-seady</strong>
+        </a>
+        <a class="card channel" [href]="profile.github" target="_blank" rel="noopener noreferrer">
+          <span>GitHub</span>
+          <strong>MahmoudGamal438</strong>
+        </a>
+      </div>
+      <button class="btn btn-ghost copy" type="button" (click)="copyEmail()">
+        {{ copied() ? 'Email copied' : 'Copy email' }}
+      </button>
+    </div>
+
+    <form class="card form" [formGroup]="form" (ngSubmit)="submit()" novalidate>
+      <label>
+        Name
+        <input type="text" formControlName="name" autocomplete="name" />
+      </label>
+      <label>
+        Email
+        <input type="email" formControlName="email" autocomplete="email" />
+      </label>
+      <label>
+        Message
+        <textarea rows="5" formControlName="message"></textarea>
+      </label>
+      <button class="btn btn-primary" type="submit">Send Message</button>
+      @if (submitted()) {
+        <p class="note">
+          This form is ready to be connected to an email service. For now, please reach me directly at
+          {{ profile.email }}.
+        </p>
+      }
+    </form>
+  </div>
+</section>

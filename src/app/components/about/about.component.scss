@@ -1,0 +1,37 @@
+.about {
+  display: grid;
+  gap: 32px;
+}
+
+.extra {
+  margin-top: 16px;
+}
+
+.facts {
+  display: grid;
+  gap: 14px;
+}
+
+.fact {
+  padding: 18px 20px;
+}
+
+.label {
+  color: var(--accent);
+  font-family: var(--mono);
+  font-size: 12px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  margin-bottom: 6px;
+}
+
+@media (min-width: 900px) {
+  .about {
+    grid-template-columns: 1.1fr 0.9fr;
+    align-items: start;
+  }
+
+  .facts {
+    grid-template-columns: 1fr 1fr;
+  }
+}

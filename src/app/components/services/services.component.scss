@@ -1,0 +1,30 @@
+.grid {
+  display: grid;
+  gap: 14px;
+  margin-top: 28px;
+}
+
+.card {
+  padding: 22px;
+}
+
+h3 {
+  font-size: 1.05rem;
+  margin-bottom: 8px;
+}
+
+p {
+  color: var(--muted);
+}
+
+@media (min-width: 720px) {
+  .grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 1080px) {
+  .grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}

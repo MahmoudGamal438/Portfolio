@@ -1,0 +1,19 @@
+<section id="skills" class="section">
+  <div class="container" appReveal>
+    <p class="section-kicker">Tech stack</p>
+    <h2 class="section-title">Tools I work with.</h2>
+    <p class="section-lead">Grouped by the areas I actually use in projects and training. No fake percentages.</p>
+    <div class="groups">
+      @for (group of groups; track group.category) {
+        <article class="card group">
+          <h3>{{ group.category }}</h3>
+          <ul>
+            @for (item of group.items; track item) {
+              <li>{{ item }}</li>
+            }
+          </ul>
+        </article>
+      }
+    </div>
+  </div>
+</section>

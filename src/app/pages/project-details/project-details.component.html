@@ -1,0 +1,55 @@
+<section class="page">
+  <div class="container">
+    @if (project(); as item) {
+      <a class="back" routerLink="/" fragment="projects">Back to projects</a>
+      <p class="section-kicker">{{ item.category }} · {{ item.year }}</p>
+      <h1>{{ item.name }}</h1>
+      <p class="lead">{{ item.shortDescription }}</p>
+      <div class="actions">
+        <a class="btn btn-ghost" [href]="item.githubUrl" target="_blank" rel="noopener noreferrer">GitHub</a>
+        @if (item.liveUrl) {
+          <a class="btn btn-primary" [href]="item.liveUrl" target="_blank" rel="noopener noreferrer">Live Demo</a>
+        }
+      </div>
+      <div class="preview" [style.--accent]="item.accent" aria-hidden="true">
+        <strong>{{ item.name }}</strong>
+      </div>
+      <div class="grid">
+        <article class="card block">
+          <h2>Overview</h2>
+          <p>{{ item.overview }}</p>
+        </article>
+        <article class="card block">
+          <h2>Purpose</h2>
+          <p>{{ item.purpose }}</p>
+        </article>
+      </div>
+      <article class="card block">
+        <h2>Main features</h2>
+        <ul>
+          @for (feature of item.features; track feature) {
+            <li>{{ feature }}</li>
+          }
+        </ul>
+      </article>
+      <article class="card block">
+        <h2>Technologies</h2>
+        <div class="tech">
+          @for (tech of item.technologies; track tech) {
+            <span class="badge">{{ tech }}</span>
+          }
+        </div>
+      </article>
+      @if (item.architecture) {
+        <article class="card block">
+          <h2>Architecture</h2>
+          <p>{{ item.architecture }}</p>
+        </article>
+      }
+    } @else {
+      <h1>Project not found</h1>
+      <p class="lead">This project is not in the current portfolio list.</p>
+      <a class="btn btn-primary" routerLink="/">Back home</a>
+    }
+  </div>
+</section>

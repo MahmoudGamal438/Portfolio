@@ -1,0 +1,20 @@
+<a class="skip-link" href="#main">Skip to content</a>
+<div class="progress-bar" aria-hidden="true">
+  <span [style.width.%]="scroll.progress()"></span>
+</div>
+<app-navbar />
+<main id="main">
+  <router-outlet />
+</main>
+<button
+  class="icon-btn back-to-top"
+  type="button"
+  [class.visible]="scroll.showBackToTop()"
+  aria-label="Back to top"
+  (click)="scroll.toTop()"
+>
+  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+    <path d="M12 19V5M5 12l7-7 7 7" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+  </svg>
+</button>
+<app-footer />

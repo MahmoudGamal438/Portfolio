@@ -1,0 +1,160 @@
+.nav {
+  position: sticky;
+  top: 0;
+  z-index: 25;
+  height: var(--nav-h);
+  backdrop-filter: blur(18px);
+  background: color-mix(in srgb, var(--bg) 78%, transparent);
+  border-bottom: 1px solid transparent;
+  transition: border-color 0.2s ease, background 0.2s ease;
+}
+
+.nav.is-compact {
+  border-bottom-color: var(--line);
+}
+
+.nav-inner {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.mark {
+  width: 38px;
+  height: 38px;
+  display: grid;
+  place-items: center;
+  border-radius: 11px;
+  border: 1px solid color-mix(in srgb, var(--accent) 45%, var(--line));
+  color: var(--accent);
+  font-family: var(--display);
+  font-weight: 700;
+  font-size: 13px;
+  overflow: hidden;
+}
+
+.brand-text {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.15;
+}
+
+.brand-text strong {
+  font-size: 14px;
+}
+
+.brand-text small {
+  color: var(--muted);
+  font-size: 11px;
+}
+
+.links {
+  display: flex;
+  gap: 4px;
+}
+
+.nav-link {
+  background: none;
+  border: 0;
+  color: var(--muted);
+  padding: 8px 11px;
+  border-radius: 999px;
+  font-size: 14px;
+}
+
+.nav-link.active,
+.nav-link:hover {
+  color: var(--text);
+  background: var(--accent-soft);
+}
+
+.actions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.menu {
+  display: none;
+  width: 40px;
+  height: 40px;
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  background: var(--surface);
+}
+
+.menu span,
+.menu span::before,
+.menu span::after {
+  display: block;
+  width: 16px;
+  height: 1.5px;
+  background: var(--text);
+  margin: auto;
+  position: relative;
+  transition: transform 0.2s ease, opacity 0.2s ease;
+}
+
+.menu span::before,
+.menu span::after {
+  content: '';
+  position: absolute;
+  left: 0;
+}
+
+.menu span::before {
+  top: -5px;
+}
+
+.menu span::after {
+  top: 5px;
+}
+
+.menu span.open {
+  background: transparent;
+}
+
+.menu span.open::before {
+  top: 0;
+  transform: rotate(45deg);
+}
+
+.menu span.open::after {
+  top: 0;
+  transform: rotate(-45deg);
+}
+
+@media (max-width: 980px) {
+  .menu {
+    display: grid;
+  }
+
+  .links {
+    position: absolute;
+    inset: calc(var(--nav-h) + 8px) 14px auto;
+    display: none;
+    flex-direction: column;
+    padding: 12px;
+    background: var(--bg-elevated);
+    border: 1px solid var(--line);
+    border-radius: 16px;
+    box-shadow: var(--shadow);
+  }
+
+  .links.is-open {
+    display: flex;
+  }
+
+  .nav-link {
+    text-align: left;
+    padding: 12px 14px;
+  }
+}

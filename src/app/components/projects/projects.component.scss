@@ -1,0 +1,105 @@
+.filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 28px 0 24px;
+}
+
+.chip {
+  border: 1px solid var(--line);
+  background: transparent;
+  color: var(--muted);
+  border-radius: 999px;
+  padding: 8px 14px;
+}
+
+.chip.active,
+.chip:hover {
+  color: var(--text);
+  border-color: var(--accent);
+  background: var(--accent-soft);
+}
+
+.list {
+  display: grid;
+  gap: 20px;
+}
+
+.project {
+  overflow: hidden;
+  display: grid;
+  transition: transform 0.2s ease, border-color 0.2s ease;
+}
+
+.project:hover {
+  transform: translateY(-3px);
+  border-color: color-mix(in srgb, var(--accent) 35%, var(--line));
+}
+
+.preview {
+  min-height: 180px;
+  padding: 22px;
+  background:
+    radial-gradient(circle at 80% 20%, color-mix(in srgb, var(--accent) 28%, transparent), transparent 42%),
+    linear-gradient(160deg, var(--bg-soft), var(--bg-elevated));
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  gap: 6px;
+}
+
+.preview strong {
+  font-family: var(--display);
+  font-size: 1.4rem;
+}
+
+.preview em,
+.preview .year {
+  font-style: normal;
+  color: var(--muted);
+  font-size: 12px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.body {
+  padding: 22px;
+}
+
+.body h3 {
+  font-size: 1.2rem;
+  margin-bottom: 8px;
+}
+
+.body p,
+.body li {
+  color: var(--muted);
+}
+
+.tech {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin: 14px 0;
+}
+
+ul {
+  margin: 0 0 18px;
+  padding-left: 18px;
+}
+
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+@media (min-width: 900px) {
+  .project {
+    grid-template-columns: 280px 1fr;
+  }
+
+  .preview {
+    min-height: 100%;
+  }
+}

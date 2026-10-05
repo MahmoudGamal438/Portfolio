@@ -1,0 +1,14 @@
+<section id="services" class="section">
+  <div class="container" appReveal>
+    <p class="section-kicker">Services</p>
+    <h2 class="section-title">What I can contribute.</h2>
+    <div class="grid">
+      @for (item of items; track item.title) {
+        <article class="card">
+          <h3>{{ item.title }}</h3>
+          <p>{{ item.description }}</p>
+        </article>
+      }
+    </div>
+  </div>
+</section>

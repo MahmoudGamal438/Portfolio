@@ -1,0 +1,26 @@
+<section id="about" class="section">
+  <div class="container about" appReveal>
+    <div>
+      <p class="section-kicker">About</p>
+      <h2 class="section-title">Frontend-focused, with a full-stack foundation.</h2>
+      <p class="section-lead">
+        I am an Information Systems graduate from Menoufia University with a strong focus on
+        Frontend Development and Angular. I build responsive interfaces, work with TypeScript
+        and JavaScript, and integrate REST APIs in real web applications.
+      </p>
+      <p class="section-lead extra">
+        Training with NTI, ITI, and DEPI gave me practical exposure to web design, backend .NET,
+        and full-stack development. That background helps me understand frontend, backend, APIs,
+        databases, client-server communication, and web application architecture.
+      </p>
+    </div>
+    <div class="facts">
+      @for (item of points; track item.label) {
+        <article class="card fact">
+          <p class="label">{{ item.label }}</p>
+          <p>{{ item.value }}</p>
+        </article>
+      }
+    </div>
+  </div>
+</section>
